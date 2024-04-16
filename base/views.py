@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse('Test done with success.')
+    return render(request, 'base/index.html')
 
 
 

@@ -1,3 +1,5 @@
-<h1 style="color: coral;">
-    HELLO WORLD
-</h1>
+<form action="" method="post">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button type="submit">Login</button>
+</form>
