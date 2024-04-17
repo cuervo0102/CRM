@@ -7,6 +7,7 @@ class TestViews(TestCase):
     def setUp(self):
         self.client = Client()
         self.login_url = reverse('login')
+        self.logout_url = reverse('logout')
         self.user = User.objects.create_user(username='test_username', password='password123@')
 
     def test_login_POST(self):
@@ -22,3 +23,13 @@ class TestViews(TestCase):
         response = self.client.get(self.login_url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'user_auth/login_request.html')
+
+
+
+
+    def test_logout(self):
+        self.client.login(username='test_username', password='password123@')
+        response = self.client.get(self.logout_url)
+        self.assertEqual(response.status_code, 302)
+        user_logged_in = '_auth_user_id' in self.client.session
+        self.assertFalse(user_logged_in)
