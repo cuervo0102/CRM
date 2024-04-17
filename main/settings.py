@@ -137,5 +137,6 @@ EMAIL_HOST_USER = 'lackbutlersiham2001@gmail.com'
 
 
 
+
 # Celery Configuration
 CELERY_BROKER_URL = 'amqp://guest:guest@localhost//'
