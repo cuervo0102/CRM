@@ -7,3 +7,6 @@
 2024-04-16 22:57:47,833 - user_auth.utils - ERROR - Invalid username or password
 2024-04-16 22:58:55,724 - user_auth.utils - INFO - You are now logged in as test_username.
 2024-04-16 23:02:41,057 - user_auth.utils - INFO - You are now logged in as test_username.
+2024-04-17 22:16:45,847 - user_auth.utils - INFO - You are now logged in as test_username.
+2024-04-17 22:28:00,764 - user_auth.utils - INFO - You are now logged in as test_username.
+2024-04-17 22:28:34,672 - user_auth.utils - INFO - You are now logged in as test_username.

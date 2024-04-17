@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import Lead
 from icecream import ic 
 from django.http import HttpResponse
 from .models import LeadForm
-from .tasks import send_email_task
+from .tasks import send_welcome_email
 
 
 
@@ -14,15 +14,10 @@ def index(request):
         form = Lead(request.POST)
         if form.is_valid():
             form.save()
-
+            send_welcome_email.delay(form.cleaned_data['email'])
             ic(request.POST)
+            return redirect('/')
+            
     return render(request, 'base/index.html', {'form': form})
 
 
-def sending_email(request):
-    subject = 'Welcome to CRM world'
-    message = 'Hi Siham, thank you for registering on CRM.'
-    recipient_list = ['blackbutlersiham2001@gmail.com']
-    send_email_task.delay(subject, message, recipient_list)
-
-    return HttpResponse('Email sent asynchronously')

@@ -1,8 +1,7 @@
 from django.urls import path 
-from .views import index, sending_email
+from .views import index
 
 
 urlpatterns = [
-    path('', index), 
-    path('emailing', sending_email, name='emailing')
+    path('', index, name='index'), 
 ]
